@@ -1,0 +1,14 @@
+fastapi==0.162.7
+uvicorn[standard]
+httpx
+python-dotenv
+python-multipart
+pypdf
+certifi
+geopy
+openrouteservice
+folium
+osmnx
+pytest
+PyJWT==2.10.1
+psycopg[binary,pool]

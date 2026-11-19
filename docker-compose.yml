@@ -1,0 +1,13 @@
+# Run the production build locally:  docker compose up --build   then open http://localhost:8000
+services:
+  app:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env          # your keys; never baked into the image
+    environment:
+      SEED_DEMO: "1"
+    volumes:
+      - copilot-data:/data  # accounts and trips survive restarts
+    restart: unless-stopped
+volumes:
+  copilot-data:

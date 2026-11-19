@@ -1,0 +1,20 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+frontend/dist/
+.DS_Store
+backend/data/trips/*.json
+backend/data/users.json
+backend/data/activity.jsonl
+backend/data/.jwt_secret
+
+# demo videos are too large for GitHub (100 MB limit)
+*.mp4
+*.mov
+!Disruption_Copilot_Demo.mp4
+backend/data_demo/
+.neon
+.env.local

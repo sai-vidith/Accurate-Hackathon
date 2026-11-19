@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-slate-50 text-slate-900 antialiased; }
+  ::selection { @apply bg-teal-100 text-teal-900; }
+}
+
+/* Leaflet controls in the app style */
+.leaflet-bar a { color: #0f172a !important; }
+.leaflet-container { font-family: Inter, system-ui, sans-serif; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

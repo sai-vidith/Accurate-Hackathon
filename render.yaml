@@ -1,0 +1,31 @@
+# Render blueprint (the API): New > Blueprint > pick this repo. Fill in the values Render asks for.
+# The website goes on Netlify (netlify.toml); the database on Neon. See DEPLOY.md.
+services:
+  - type: web
+    name: disruption-copilot
+    runtime: docker
+    plan: free            # sleeps after 15 min idle; the first request then takes about a minute
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ORS_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: GEMINI_MODEL
+        value: gemini-flash-lite-latest
+      - key: LLM_PROVIDER_ORDER
+        value: groq,gemini
+      - key: DATABASE_URL       # Neon connection string (postgresql://...?sslmode=require)
+        sync: false
+      - key: ALLOWED_ORIGINS    # your Netlify address, e.g. https://disruption-copilot.netlify.app
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SEED_DEMO
+        value: "1"
+      - key: IDEA_LIMIT_PER_HOUR
+        value: "10"
